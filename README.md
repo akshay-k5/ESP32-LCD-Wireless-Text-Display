@@ -1,44 +1,45 @@
-# ESP32 LCD Wireless Text Display  
+# ESP32 LCD Wireless Text Display
 
-This project demonstrates how to **control a 16x2 I²C LCD wirelessly using an ESP32**.  
-The ESP32 hosts a Wi-Fi access point and a web server, allowing you to send custom messages from any device (mobile/PC) via a browser.  
-
----
-
-## ✨ Features
-- Runs ESP32 in **Access Point (AP) mode** (no external Wi-Fi required).  
-- Built-in **webpage UI** to send text to the LCD.  
-- Text longer than **16 characters scrolls smoothly** across the LCD.  
-- **Wi-Fi details (SSID, Password, IP)** scroll on LCD at boot until a new message is sent.  
-- **Interrupts scrolling immediately** when new message is received.  
-- Endless scrolling of both Wi-Fi details and user messages.  
+This project demonstrates how to use an **ESP32** with an **I2C LCD** to display Wi-Fi credentials, IP address, and user-sent messages via a web interface.  
+If the message is longer than 16 characters, it will scroll smoothly on the display.  
+The project also supports **real-time interruption** of scrolling when a new message is received.
 
 ---
 
-## 🔧 Hardware Requirements
-- ESP32-WROOM board  
-- 16x2 LCD with I²C backpack (default address: `0x27`, may vary)  
-- Jumper wires  
+## 📷 Project Preview
+
+### Screenshot of Web UI
+![Screenshot](Project_details/ScreenShot.png)
+
+### Hardware Setup
+![Image](Project_details/Image.jpg)
+---
+
+## 🚀 Features
+- Wi-Fi credentials and IP scroll endlessly on boot  
+- Messages longer than 16 characters scroll smoothly  
+- New messages interrupt current scroll immediately  
+- Simple Web UI to send text to ESP32 over Wi-Fi  
+- LCD with I2C interface for compact wiring  
 
 ---
 
-## 🔌 Connections (ESP32 → LCD via I²C)
-
-| ESP32 Pin | LCD Pin |
-|-----------|---------|
-| 3.3V / 5V | VCC     |
-| GND       | GND     |
-| GPIO 21   | SDA     |
-| GPIO 22   | SCL     |
+## 🔧 Hardware Required
+- ESP32 Dev Board  
+- 16x2 I2C LCD Display  
+- Jumper Wires  
+- Breadboard / PCB  
 
 ---
 
-## 🌐 Web Interface
-- ESP32 creates a Wi-Fi hotspot:  
-  - **SSID:** `ESP32_Hotspot`  
-  - **Password:** `12345678`  
-- Connect your device to this Wi-Fi.  
-- Open browser → go to the IP Displayed in the Screen  
-- Enter your message and hit **Send**.  
-- The LCD will instantly update and start scrolling your message.  
+## 🔌 Circuit Diagram
+See `CIRCUIT_DIAGRAM.png` for complete wiring.
+
+---
+
+## 🌐 How to Use
+1. Flash the ESP32 with the provided `ESP_WIFI_DISPLAY.ino`.  
+2. Connect to the ESP32 Wi-Fi network (or your configured Wi-Fi).  
+3. Open the  IP address shown in LCD in browser.  
+4. Enter text in the webpage → It displays on LCD with smooth scrolling.  
 
